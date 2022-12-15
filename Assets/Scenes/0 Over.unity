@@ -272,6 +272,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a766c2e76d1224e92621a5c9284590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelLoadDelay: 2
+  success: {fileID: 8300000, guid: 8d13363d149f9cb45b7e4985d06f7f87, type: 3}
+  crash: {fileID: 8300000, guid: 0e807d0782b168a4a8ffbcbaa6f91128, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +418,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6199817008160110265, guid: a366022722f5e81458d046511781947d, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713601079153174149, guid: a366022722f5e81458d046511781947d, type: 3}
+      propertyPath: mainEngine
+      value: 
+      objectReference: {fileID: 8300000, guid: cb47d72b0d572aa4aae6c9ef0cfd6c7d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a366022722f5e81458d046511781947d, type: 3}
 --- !u!1001 &3477506800775261619
