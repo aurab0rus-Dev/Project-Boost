@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    [SerializeField] float mainThrust = 1000f;
+    [SerializeField] float rotationThrust = 1f;
+
+    Rigidbody rb;  
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -21,20 +26,24 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("Thrusting");
+            rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
         }
     }
     void ProcessRotation()
     {
         if (Input.GetKey(KeyCode.A))
         {
-            Debug.Log("Rotating Left");
+            ApplyRotation(rotationThrust);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            Debug.Log("Rotating Right");
-        }
-        
+            ApplyRotation(-rotationThrust);
+        }        
     }
-
+    void ApplyRotation(float rotationThisFrame)
+    {
+        rb.freezeRotation = true;  //freezing default physics system to manual control.
+        transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime);
+        rb.freezeRotation = false;  //unfreezing default physics system to take control.
+    }
 }
