@@ -6,7 +6,9 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotationThrust = 1f;
+
     [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip sideEngine;
 
     [SerializeField] ParticleSystem mainEngineParticles;
     [SerializeField] ParticleSystem leftThrusterParticles;
@@ -36,7 +38,7 @@ public class Movement : MonoBehaviour
         {
             StartThrust(); 
         }
-        else
+        else if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
             StopThrust();
         }
@@ -89,6 +91,10 @@ public class Movement : MonoBehaviour
     private void RotateLeft()
     {
         ApplyRotation(rotationThrust);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(sideEngine);
+        }
         if (!rightThrusterParticles.isPlaying)
         {
             rightThrusterParticles.Play();
@@ -98,6 +104,10 @@ public class Movement : MonoBehaviour
     private void RotateRight()
     {
         ApplyRotation(-rotationThrust);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(sideEngine);
+        }
         if (!leftThrusterParticles.isPlaying)
         {
             leftThrusterParticles.Play();
@@ -108,6 +118,11 @@ public class Movement : MonoBehaviour
     {
         rightThrusterParticles.Stop();
         leftThrusterParticles.Stop();
+
+        if (!Input.GetKey(KeyCode.Space))
+        {
+            audioSource.Stop();
+        }
     }
 
 }

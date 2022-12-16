@@ -1420,6 +1420,7 @@ MonoBehaviour:
   mainThrust: 1000
   rotationThrust: 75
   mainEngine: {fileID: 8300000, guid: cb47d72b0d572aa4aae6c9ef0cfd6c7d, type: 3}
+  sideEngine: {fileID: 8300000, guid: dd25589574670344b9b185059cec38df, type: 3}
   mainEngineParticles: {fileID: 6508514550046007108}
   leftThrusterParticles: {fileID: 4622893513176835548}
   rightThrusterParticles: {fileID: 8426298631324316705}
