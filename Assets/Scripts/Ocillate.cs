@@ -19,6 +19,7 @@ public class Ocillate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (period <= Mathf.Epsilon) { return; }  // prevents NaN error
         float cycles = Time.time / period;    // Continually growing over time
         
         const float tau = Mathf.PI * 2;   // Constant value of 6.283
